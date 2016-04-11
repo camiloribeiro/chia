@@ -34,7 +34,7 @@ class Chia < Sinatra::Base
   private
 
   def get_services
-    YAML.load_file('../services.yml')
+    YAML.load_file('services.yml')
   end
 
   def get_status_for_service service_name
