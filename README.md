@@ -5,6 +5,15 @@
 [![Test Coverage](https://codeclimate.com/github/camiloribeiro/Chia/badges/coverage.svg)](https://codeclimate.com/github/camiloribeiro/Chia)
 [![endorse](https://api.coderwall.com/camiloribeiro/endorsecount.png)](https://coderwall.com/camiloribeiro)
 
+       .-.         .-.
+      ( C )       ( I )       Welcome to CHIA! 
+       '-'   .-.   '-'        Chia is a microservice monitor agnostic to frameworks
+            ( H )     .-.     It shows the status of a group of microservices and
+             '-'     ( A )    also shows the dependencies among them. 
+                      '-'     
+                              Enjoy Chia!
+
+
 LICENSE
 =======
 
