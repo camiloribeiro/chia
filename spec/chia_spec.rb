@@ -60,7 +60,7 @@ describe Chia do
 
       get '/status'
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq( '{"service-in-scala":{"health":true},"service-in-java":{"health":true}}')
+      expect(last_response.body).to eq( '[{"name":"service-in-scala","health":true},{"name":"service-in-java","health":true}]')
     end
 
     it "Get status to all services when all of them are unnhealth" do
@@ -71,7 +71,7 @@ describe Chia do
 
       get '/status'
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq( '{"service-in-scala":{"health":false},"service-in-java":{"health":false}}')
+      expect(last_response.body).to eq( '[{"name":"service-in-scala","health":false},{"name":"service-in-java","health":false}]')
     end
 
     it "Get status for a single service when it is health" do
@@ -80,7 +80,7 @@ describe Chia do
 
       get '/status/service-in-scala'
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq( '{"health":true}')
+      expect(last_response.body).to eq( 'true')
     end
 
     it "Get status for a single service when it is not health" do
@@ -89,9 +89,32 @@ describe Chia do
 
       get '/status/service-in-scala'
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq( '{"health":false}')
+      expect(last_response.body).to eq( 'false')
     end
 
+  end
+
+  describe "Getting its own status" do
+    it "Service should return itself as health at all times" do
+      get '/my_status'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq( '{"chia":{"health":true}}')
+    end
+  end
+
+  describe "Getting static content" do
+    it "Service should return 200 when requesting html" do
+      get '/'
+      expect(last_response.status).to eq(200)
+    end
+    it "Service should return 200 when requesting css" do
+      get '/css/base.css'
+      expect(last_response.status).to eq(200)
+    end
+    it "Service should return 200 when requesting js" do
+      get '/scripts/app.js'
+      expect(last_response.status).to eq(200)
+    end
   end
 
 end

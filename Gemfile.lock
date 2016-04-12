@@ -55,6 +55,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
+    hike (1.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -70,6 +71,19 @@ GEM
     netrc (0.11.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    opal (0.8.0)
+      hike (~> 1.2)
+      sourcemap (~> 0.1.0)
+      sprockets (~> 3.1)
+      tilt (>= 1.4)
+    opal-activesupport (0.3.0)
+      opal (>= 0.5.0, < 1.0.0)
+    opal-browser (0.2.0)
+      opal
+      paggio
+    opal-jquery (0.4.1)
+      opal (>= 0.7.0, < 0.10.0)
+    paggio (0.2.6)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -106,6 +120,10 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.1.2)
+    reactive-ruby (0.7.40)
+      opal (= 0.8.0)
+      opal-activesupport (>= 0.2.0)
+      opal-browser (= 0.2.0)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -134,6 +152,7 @@ GEM
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
     slop (3.6.0)
+    sourcemap (0.1.1)
     sprockets (3.6.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -160,10 +179,12 @@ PLATFORMS
 DEPENDENCIES
   codeclimate-test-reporter
   datagrid
+  opal-jquery
   pry
   rack-ssl
   rack-test
   rake
+  reactive-ruby (= 0.7.40)
   rest-client
   rspec
   sinatra

@@ -2,11 +2,22 @@ require 'sinatra/base'
 require 'rest-client'
 require 'yaml'
 require 'json'
-require 'datagrid'
 
 class Chia < Sinatra::Base
   get '/' do
-    get_services
+      File.read(File.join('public', 'index.html'))
+  end
+
+  get '/my_status' do
+    '{"chia":{"health":true}}'
+  end
+
+  get '/css/base.css' do
+      File.read(File.join('public/css/', 'base.css'))
+  end
+
+  get '/scripts/app.js' do
+      File.read(File.join('public/scripts/', 'app.js'))
   end
 
   get '/json' do
@@ -24,9 +35,9 @@ class Chia < Sinatra::Base
 
   get "/status" do
     services = JSON.parse get_services["services"].to_json
-    response = Hash.new(0)
+    response = Array.new
     services.each do |service_name, service_info|
-      response[service_name] = get_status_for_service service_name
+      response << {:name => service_name, :health => (get_status_for_service service_name)}
     end
     response.to_json
   end
@@ -38,9 +49,14 @@ class Chia < Sinatra::Base
   end
 
   def get_status_for_service service_name
-    response = RestClient.get get_services["services"][service_name]["status"]["url"] 
+    begin
+      response = RestClient.get get_services["services"][service_name]["status"]["url"] 
+    rescue => e
+      response = e.response
+    end
     expectation = get_services["services"][service_name]["status"]["expected-response"]
+
     
-    {"health" => (response == expectation)}
+    (response == expectation)
   end
 end
