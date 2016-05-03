@@ -11,3 +11,9 @@ services:
       expected-code: "200"
       expected-response: "ok"
     health-url: "http://java.com"
+  service-in-go:
+    status:
+      url: "http://go.com/ping"
+      expected-code: "200"
+      expected-response: "ok"
+    health-url: "http://go.com"

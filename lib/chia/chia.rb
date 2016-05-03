@@ -30,7 +30,7 @@ class Chia < Sinatra::Base
   end
 
   get "/status/:service" do
-    #/(get_status_for_service params['service']).to_json
+    (get_status_for_service params['service']).to_json
   end
 
   get "/status" do
