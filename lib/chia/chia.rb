@@ -51,7 +51,6 @@ class Chia < Sinatra::Base
 
   def get_status_for_service service_name
     begin
-      require "pry"; binding.pry
       response = RestClient.get get_services["services"][service_name]["status"]["url"] 
     rescue => e
       response = e.response
