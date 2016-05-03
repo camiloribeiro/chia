@@ -1,14 +1,31 @@
 body {
-  background: #c6c6c6;
+  background: #FFFFFF;
   font-size: 15px;
   line-height: 1.7;
   margin: 0;
   padding: 30px;
 }
 
+#content {
+  width: 90%;
+  height: 90%;
+}
+
 .false {
-  width: 300px;
-  padding: 25px;
-  border: 25px solid red;
-  margin: 25px;
+  width: 20%;
+  padding-left: 15px;
+  background: #FDD;
+  border-width: 0 10px 16px 0;
+  border-style: solid;
+  border-color: #f91E15 #fff;
+}
+
+
+.true {
+  width: 20%;
+  padding-left: 15px;
+  background: #CFC;
+  border-width: 0 10px 16px 0;
+  border-style: solid;
+  border-color: #658E15 #fff;
 }

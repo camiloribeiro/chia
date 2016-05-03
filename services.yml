@@ -7,9 +7,9 @@ services:
     health-url: "http://scala.com"
   service-in-java:
     status:
-      url: "http://java/ping"
+      url: "http://localhost:4567/"
       expected-code: "200"
-      expected-response: "ok"
+      expected-response: "pong"
     health-url: "http://java.com"
   service-in-go:
     status:

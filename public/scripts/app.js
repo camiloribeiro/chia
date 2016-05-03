@@ -43,9 +43,8 @@ var Service = React.createClass({
               return (
                 <div className={this.props.health}>
                 <h2 className="service">
-                {this.props.health}
+                {this.props.name}
                 </h2>
-                <span dangerouslySetInnerHTML={this.rawMarkup()} />
                 </div>
                 );
             }
@@ -55,7 +54,7 @@ var ServiceList = React.createClass({
   render: function() {
             var serviceNodes = this.props.data.map(function(service) {
               return (
-                <Service health={service.health} key={service.name}>
+                <Service health={service.health} key={service.name} name={service.name}>>
                 {service.name}
                 {service.health}
                 </Service>
