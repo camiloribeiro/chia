@@ -52,6 +52,8 @@ class Chia < Sinatra::Base
   def get_status_for_service service_name
     begin
       response = RestClient.get get_services["services"][service_name]["status"]["url"] 
+    rescue SocketError => e
+      response = "fodeu"
     rescue => e
       response = e.response
     end

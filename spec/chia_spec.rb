@@ -122,6 +122,30 @@ describe Chia do
       expect(last_response.body).to eq( 'false')
     end
 
+    it "Get status for a single service when everything is null" do
+      stub_request(:get, "http://scala/ping")
+
+      get '/status/service-in-scala'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq( 'false')
+    end
+
+    it "Get status for a single service when the host does not respond" do
+      WebMock.disable!
+      get '/status/service-in-scala'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq( 'false')
+    end
+
+    it "Get status for a single service that times out" do
+      stub_request(:get, "http://scala/ping").
+      to_timeout
+
+      get '/status/service-in-scala'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq( 'false')
+    end
+
   end
 
   describe "Getting its own status" do
