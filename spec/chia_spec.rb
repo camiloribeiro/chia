@@ -104,6 +104,24 @@ describe Chia do
       expect(last_response.body).to eq( 'false')
     end
 
+    it "Get status for a single service when there is a intenal server error" do
+      stub_request(:get, "http://scala/ping").
+        to_return(:status => 500, :body => "There is no Internet connection", :headers => {})
+
+      get '/status/service-in-scala'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq( 'false')
+    end
+
+    it "Get status for a single service when there is no response" do
+      stub_request(:get, "http://scala/ping").
+        to_return(:status => 0, :body => "", :headers => {})
+
+      get '/status/service-in-scala'
+      expect(last_response.status).to eq(200)
+      expect(last_response.body).to eq( 'false')
+    end
+
   end
 
   describe "Getting its own status" do
