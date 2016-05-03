@@ -41,8 +41,8 @@ var Service = React.createClass({
 
     render: function() {
               return (
-                <div className="service">
-                <h2 className="servicehealth">
+                <div className={this.props.health}>
+                <h2 className="service">
                 {this.props.health}
                 </h2>
                 <span dangerouslySetInnerHTML={this.rawMarkup()} />

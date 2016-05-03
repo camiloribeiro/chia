@@ -1,0 +1,7 @@
+version: '2'
+services:
+  chia:
+    build:
+      context: .
+    ports:
+      - "9292:9292"

@@ -1,19 +1,19 @@
 services:
   service-in-scala:
     status:
-      url: "http://scala.com/ping"
+      url: "http://scala/ping"
       expected-code: "200"
       expected-response: "pong"
     health-url: "http://scala.com"
   service-in-java:
     status:
-      url: "http://java.com/ping"
+      url: "http://java/ping"
       expected-code: "200"
       expected-response: "ok"
     health-url: "http://java.com"
   service-in-go:
     status:
-      url: "http://go.com/ping"
+      url: "http://go/ping"
       expected-code: "200"
-      expected-response: "ok"
+      expected-response: "health"
     health-url: "http://go.com"
