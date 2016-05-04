@@ -13,6 +13,12 @@
                       '-'     
                               Enjoy Chia!
 
+Disclaimer:
+------------
+
+Look into the react code at your own risk. It is very likelly it will cause you some nausea or suicidal thouhts. If you know me and think I am smarter than a ducj, please, sonsider not looking into the js code so it will not be embarassing to look at me again.
+Jokes aside, I have no idea how to javascript, and I tryed to do some react for fun. But you will not see tests for javascript, neither good indentation and not at all good practices on javascript.
+
 
 LICENSE
 =======
