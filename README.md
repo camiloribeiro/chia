@@ -11,7 +11,7 @@
             ( H )     .-.     It shows the status of a group of microservices and
              '-'     ( A )    also shows the dependencies among them. 
                       '-'     
-                              Enjoy Chia!
+                              Enjoy Chia! - This project was inspired by nutritious chia seeds :D
 
 Disclaimer:
 ------------
